@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+namespace FitnesClubEF
+{
+    /// <summary>
+    /// Логика взаимодействия для UserUpdate.xaml
+    /// </summary>
+    public partial class UserUpdate : Window
+    {
+        public MyVisitor MyVisitor { get; set; }
+        public UserUpdate(MyVisitor v)
+        {
+            InitializeComponent();
+            DataContext = new UserUpdateViewmodel(v, this);
+        }
+        public void Close(MyVisitor v)
+        {
+            MyVisitor = v;
+            base.Close();
+        }
+    }
+}
